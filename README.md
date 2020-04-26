@@ -1,14 +1,14 @@
 # Comment Popularity #
 
-**Contributors:** pauldewouters,mattheu,humanmade,cfo-publishing, slavicd  
+**Contributors:** pauldewouters,mattheu,humanmade,cfo-publishing  
 **Tags:** comments,vote,upvote,karma,widget  
 **Requires at least:** 3.9  
-**Tested up to:** 4.2-alpha  
-**Stable tag:** 1.3.4  
+**Tested up to:** 4.5  
+**Stable tag:** 1.3.5  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
-Comment Popularity adds the ability for logged in users to vote on comments.
+Comment Popularity adds the ability for visitors to vote on comments.
 
 ## Description ##
 
@@ -61,11 +61,10 @@ Yes, you can enable guest voting by adding this snippet to a mu-plugin:
 Please note that it uses cookies and IP addresses to identify a visitor. This is not as reliable as
 requiring a user to create an account. Cookies can be deleted, and IP addresses can be shared.
 
-### Can I limit comment weight to positive values only? ###
+### Can comment weight be negative? ###
 
-Yes, you can enable non-negative weights only by adding this snippet to a mu-plugin:
-`add_filter( 'hmn_cp_allow_negative_comment_weight', '__return_false' );` 
-Bear in mind that this results in a [double-voting issue](https://github.com/humanmade/comment-popularity/issues/113) 
+Yes, you can enable negative weight by adding this snippet to a mu-plugin:
+`add_filter( 'hmn_cp_allow_negative_comment_weight', '__return_true' );`
 
 ### Can I disable the sorting by comment weight? ###
 
@@ -136,6 +135,21 @@ To display the comment author karma:
 * Fixes a bug which prevented the user karma to appear in the single comment template.
 
 ## Changelog ##
+
+### 1.4.1 ###
+
+* Fix a PHP notice
+
+### 1.4.0 / 2016-04-15
+
+* Clicking the up or down arrow now cancels your vote if you had already voted the same way.
+* Add JS throttling to prevent too many ajax requests.
+###
+### 1.3.5 / 2016-03-16 ###
+
+* Fix a bug which updated all comment columns with karma value.
+* Now visually shows upvotes/downvotes
+* Global plugin variable
 
 ### 1.3.4 / 2015-02-12 ###
 

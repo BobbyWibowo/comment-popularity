@@ -103,9 +103,25 @@ module.exports = function (grunt) {
 			}
 		},
 
-		clean:{
+		compress: {
+			build: {
+				options: {
+					archive: '<%= pkg.name %>.zip'
+				},
+				files: [{
+					cwd: 'build/',
+					src: [ '**/*' ],
+					dest: '/'
+				}]
+			}
+		},
+
+		clean: {
 			build: {
 				src: [ 'build' ]
+			},
+			compressed: {
+				src: [ '<%= pkg.name %>.zip' ]
 			}
 		},
 
@@ -245,6 +261,7 @@ module.exports = function (grunt) {
 	// Package a new release
 	grunt.registerTask( 'package', [
 		'copy:build',
+		'clean:compressed',
 		'compress:build',
 		'clean:build'
 	] );
