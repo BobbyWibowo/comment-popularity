@@ -89,11 +89,13 @@ class HMN_Comment_Popularity {
 
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 
+		// Disable custom comments template.
 		// add_filter( 'comments_template', array( $this, 'custom_comments_template' ) );
 
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 
-		add_action( 'wp_head', array( $this, 'styles' ) );
+		// Disable adding <style> tag.
+		// add_action( 'wp_head', array( $this, 'styles' ) );
 
 		$this->init_twig();
 
