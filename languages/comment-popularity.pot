@@ -38,7 +38,7 @@ msgstr ""
 msgid "Weight"
 msgstr ""
 
-#: comment-popularity.php:20
+#: slavicd-comment-popularity.php:20
 msgid "This plugin requires PHP Version %s. Sorry about that."
 msgstr ""
 

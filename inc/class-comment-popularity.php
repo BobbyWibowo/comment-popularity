@@ -89,7 +89,7 @@ class HMN_Comment_Popularity {
 
 		add_action( 'init', array( $this, 'load_textdomain' ) );
 
-		add_filter( 'comments_template', array( $this, 'custom_comments_template' ) );
+		// add_filter( 'comments_template', array( $this, 'custom_comments_template' ) );
 
 		add_action( 'widgets_init', array( $this, 'register_widgets' ) );
 

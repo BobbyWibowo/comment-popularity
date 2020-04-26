@@ -1,9 +1,9 @@
 {
-	"name"             : "humanmade/comment_popularity",
+	"name"             : "slavicd/comment_popularity",
 	"description"      : "WordPress comment rating system",
 	"minimum-stability": "stable",
 	"keywords"   : ["wordpress"],
-	"homepage"   : "https://github.com/humanmade/comment-popularity",
+	"homepage"   : "https://github.com/slavicd/comment-popularity",
 	"license"    : "GPL-2.0+",
 	"config": {
 		"vendor-dir": "inc/lib"
@@ -15,10 +15,10 @@
 		}
 	],
 	"support"    : {
-		"issues": "https://github.com/humanmade/comment-popularity/issues"
+		"issues": "https://github.com/slavicd/comment-popularity/issues"
 	},
 	"autoload"   : {
-		"classmap": ["comment-popularity.php"]
+		"classmap": ["slavicd-comment-popularity.php"]
 	},
 	"require": {
 		"twig/twig": "1.*"

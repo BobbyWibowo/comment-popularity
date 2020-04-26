@@ -122,7 +122,7 @@ module.exports = function (grunt) {
 			},
 			pluginsVersion: {
 				src: [
-					'comment-popularity.php'
+					'slavicd-comment-popularity.php'
 				],
 				overwrite: true,
 				replacements: [ {
