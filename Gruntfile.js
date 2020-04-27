@@ -133,7 +133,7 @@ module.exports = function (grunt) {
 				overwrite: true,
 				replacements: [ {
 					from: /^\tconst HMN_CP_PLUGIN_VERSION = '.*';$/m,
-					to: "\tconst HMN_CP_PLUGIN_VERSION '<%= pkg.version %>';"
+					to: "\tconst HMN_CP_PLUGIN_VERSION = '<%= pkg.version %>';"
 				} ]
 			},
 			pluginsVersion: {
