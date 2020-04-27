@@ -4,6 +4,7 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 	exit;
 }
 
+/* // TODO: Do something about this? For now I'm leaving all data on uninstall.
 // Remove plugin settings
 delete_option( 'comment_popularity_prefs' );
 delete_option( 'hmn_cp_plugin_version' );
@@ -87,6 +88,7 @@ $wpdb->query(
 		"UPDATE wp_comments SET comment_karma=0 WHERE comment_karma > %d", 0
 	)
 );
+*/
 
 // Remove custom capabilities
 require_once plugin_dir_path( __FILE__ ) . 'inc/class-comment-popularity.php';

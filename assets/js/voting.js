@@ -34,7 +34,7 @@
 				post.done( function( data ) {
 					var commentWeightContainer = $( '#comment-weight-value-' + data.data.comment_id );
 					if ( data.success === false ) {
-						$.growl.error({ message: data.data.error_message });
+						$.growl({ title: 'Error!', style: 'error', message: data.data.error_message });
 					} else {
 						// update karma
 						commentWeightContainer.text( data.data.weight );
@@ -58,7 +58,7 @@
 
 
 						}
-						$.growl.notice({ message: data.data.success_message });
+						$.growl({ title: 'Success!', style: 'notice', message: data.data.success_message });
 					}
 
 					clicked = false;

@@ -698,7 +698,7 @@ class HMN_Comment_Popularity {
 		do_action( 'hmn_cp_comment_vote', $user_id, $comment_id, $labels[ $vote ] );
 
 		$return = array(
-			'success_message'    => __( 'Thanks for voting!', 'comment-popularity' ),
+			'success_message'    => __( 'Your vote has been recorded!', 'comment-popularity' ),
 			'weight'     => $this->get_comment_weight( $comment_id ),
 			'comment_id' => $comment_id,
 			'vote_type'  => $labels[ $vote ],

@@ -55,7 +55,7 @@ msgid "Invalid action"
 msgstr ""
 
 #: inc/class-comment-popularity.php:616
-msgid "Thanks for voting!"
+msgid "Your vote has been recorded!"
 msgstr ""
 
 #: inc/class-visitor.php:205 inc/class-visitor.php:274
@@ -63,7 +63,7 @@ msgid "You cannot %s this comment again."
 msgstr ""
 
 #: inc/class-visitor.php:252
-msgid "You lack sufficient permissions to vote on comments"
+msgid "You lack sufficient permissions to vote on comments."
 msgstr ""
 
 #: inc/class-visitor.php:256

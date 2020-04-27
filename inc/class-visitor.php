@@ -229,7 +229,7 @@ class HMN_CP_Visitor_Member extends HMN_CP_Visitor {
 		$comment = get_comment( $comment_id );
 
 		if ( ! current_user_can( 'vote_on_comments' ) ) {
-			return new \WP_Error( 'insufficient_permissions', __( 'You lack sufficient permissions to vote on comments', 'comment-popularity' ) );
+			return new \WP_Error( 'insufficient_permissions', __( 'You lack sufficient permissions to vote on comments.', 'comment-popularity' ) );
 		}
 
 		if ( $comment->user_id && ( $this->get_id() === (int) $comment->user_id ) ) {
