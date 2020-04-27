@@ -1,10 +1,10 @@
 # Comment Popularity #
 
-**Contributors:** pauldewouters,mattheu,humanmade,cfo-publishing  
+**Contributors:** [pauldewouters](https://profiles.wordpress.org/pauldewouters), [mattheu](https://profiles.wordpress.org/mattheu), [humanmade](https://profiles.wordpress.org/humanmade), [cfo-publishing](https://profiles.wordpress.org/cfo-publishing)  
 **Tags:** comments,vote,upvote,karma,widget  
 **Requires at least:** 3.9  
 **Tested up to:** 4.5  
-**Stable tag:** 1.3.5  
+**Stable tag:** 1.3.5+slavicd.0.4.4  
 **License:** GPLv2 or later  
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html  
 
@@ -103,15 +103,9 @@ To display the comment author karma:
 
 ## Screenshots ##
 
-### 1. Set the default karma value for expert users. ###
-![Set the default karma value for expert users.](http://s.wordpress.org/extend/plugins/comment-popularity/screenshot-1.png)
-
-### 2. Set the user's karma and expert label. ###
-![Set the user's karma and expert label.](http://s.wordpress.org/extend/plugins/comment-popularity/screenshot-2.png)
-
-### 3. The comment voting controls, and the user's karma on the public facing site. ###
-![The comment voting controls, and the user's karma on the public facing site.](http://s.wordpress.org/extend/plugins/comment-popularity/screenshot-3.png)
-
+1. Set the default karma value for expert users.
+2. Set the user's karma and expert label.
+3. The comment voting controls, and the user's karma on the public facing site.
 
 ## Upgrade Notice ##
 

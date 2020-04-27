@@ -1,11 +1,11 @@
 <?php
 /*
 Plugin Name: Sankaku Comment Popularity
-Plugin URI: https://github.com/slavicd/comment-popularity
+Plugin URI: https://github.com/BobbyWibowo/comment-popularity
 Description: A fork of Human Made Limited's Comment Popularity plugin
-Version: 1.3.5+slavicd.0.4.3
+Version: 1.3.5+slavicd.0.4.4
 Author: Slavic Dragovtev,  Human Made Limited
-Author URI: https://wordpress.org/plugins/comment-popularity/
+Author URI: https://github.com/slavicd/comment-popularity
 Text Domain: comment-popularity
 License: GPL-2.0+
 License URI: http://www.gnu.org/licenses/gpl-2.0.txt
