@@ -260,6 +260,7 @@ module.exports = function (grunt) {
 
 	// Package a new release
 	grunt.registerTask( 'package', [
+		'replace',
 		'clean:compressed',
 		'copy:build',
 		'compress:build',

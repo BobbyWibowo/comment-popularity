@@ -26,7 +26,7 @@ abstract class HMN_CP_Visitor {
 	 */
 	public function __construct( $visitor_id ) {
 
-		$this->visitor_id = $visitor_id;
+		$this->visitor_id = $visitor_id === '::1' ? '127.0.0.1' : $visitor_id;
 
 		$this->interval = apply_filters( 'hmn_cp_interval', 15 * MINUTE_IN_SECONDS );
 
@@ -69,7 +69,7 @@ class HMN_CP_Visitor_Guest extends HMN_CP_Visitor {
 	public function __construct( $visitor_id ) {
 
 		parent::__construct( $visitor_id );
-
+		
 		$this->set_cookie();
 
 		$this->retrieve_logged_votes();
