@@ -262,6 +262,7 @@ module.exports = function (grunt) {
 	grunt.registerTask( 'package', [
 		'replace',
 		'wp_readme_to_markdown',
+		'uglify',
 		'clean:compressed',
 		'copy:build',
 		'compress:build',

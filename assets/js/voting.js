@@ -5,12 +5,27 @@
 
 		var clicked = false;
 
-		// catch the upvote/downvote action
-		$( '.comments-main' ).on( 'click', 'div.comment-weight-container span > a', _.throttle( function( e ){
+		// Catch the upvote/downvote action.
+		$( '.comments-main' ).on( 'click', 'div.comment-weight-container span > a:not([href])', _.throttle( function( e ){
 			e.preventDefault();
 			var value = 0,
 				comment_id = $(this).data( 'commentId' ),
 				containerClass = $(this).closest( 'span' ).attr( 'class' );
+			
+			var post_ids = [];
+
+			var parent = $(this).parents( '#comments[data-post-id]' ).get(0);
+			if ( parent && parent.dataset.postId ) {
+				post_ids.push( parent.dataset.postId );
+			}
+
+			var currentPost = $( '#main > article[id^="post"]' ).get(0);
+			if ( currentPost ) {
+				var currentPostID = currentPost.id.replace( 'post-', '' );
+				if ( currentPostID !== undefined ) {
+					post_ids.push( currentPostID );
+				}
+			}
 
 			if ( containerClass !== 'upvote' && $(this).hasClass( 'vote-up' ) ) {
 				value = 'upvote';
@@ -27,6 +42,7 @@
 						action: 'comment_vote_callback',
 						vote: value,
 						comment_id: comment_id,
+						post_ids: post_ids,
 						hmn_vote_nonce: comment_popularity.hmn_vote_nonce
 					}
 				);
@@ -36,10 +52,10 @@
 					if ( data.success === false ) {
 						$.growl({ title: 'Error!', style: 'error', message: data.data.error_message });
 					} else {
-						// update karma
+						// Update karma.
 						commentWeightContainer.text( data.data.weight );
 
-						// clear all classes
+						// Clear all classes.
 						commentWeightContainer.closest( '.comment-weight-container ' ).children().removeClass();
 
 						if ( data.data.vote_type !== 'undo' ) {

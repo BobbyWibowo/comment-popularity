@@ -11,7 +11,7 @@ class HMN_Comment_Popularity {
 	/**
 	 * Plugin version number.
 	 */
-	const HMN_CP_PLUGIN_VERSION = '1.3.5+slavicd.0.4.7';
+	const HMN_CP_PLUGIN_VERSION = '1.3.5+slavicd.0.4.8';
 
 	/**
 	 * The minimum PHP version compatibility.
@@ -557,6 +557,18 @@ class HMN_Comment_Popularity {
 			wp_send_json_error( $result );
 
 		} else {
+
+			// Clear pages' caches (W3 Total Cache).
+			if (function_exists('w3tc_flush_post')) {
+
+				$post_ids = $_POST['post_ids'];
+				$reduced = array_slice( $post_ids, 0, 2 );
+
+				for ( $i = 0, $size = count( $reduced ); $i < $size; ++$i ) {
+					w3tc_flush_post( absint( $reduced[$i] ) );
+				}
+
+			}
 
 			wp_send_json_success( $result );
 

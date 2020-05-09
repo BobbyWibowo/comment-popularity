@@ -75,20 +75,37 @@ class HMN_CP_Visitor_Guest extends HMN_CP_Visitor {
 		$this->retrieve_logged_votes();
 	}
 
+	private function setcookie( $name, $value = '', $expires = 0, $path = '', $domain = '', $secure = FALSE, $httponly = FALSE ) {
+
+		if (PHP_VERSION_ID < 70300) {
+			return setcookie( $name, $value, $expires, $path + '; SameSite=Strict', $domain, $secure, $httponly );
+		} else {
+			return setcookie( $name, $value, array(
+				'expires'  => $expires,
+				'path'     => $path,
+				'domain'   => $domain,
+				'samesite' => 'Strict',
+				'secure'   => $secure,
+				'httponly' => $httponly
+			) );
+		}
+
+	}
+
 	/**
 	 *
 	 */
 	public function set_cookie() {
 
 		// Set a cookie with the visitor IP address that expires in a week.
-		$expiry = apply_filters( 'hmn_cp_cookie_expiry', time() + ( 7 * DAY_IN_SECONDS ) );
+		$expiry = apply_filters( 'hmn_cp_cookie_expiry', time() + ( 30 * DAY_IN_SECONDS ) );
 
-		//Set a cookie now to see if they are supported by the browser.
+		// Set a cookie now to see if they are supported by the browser.
 		$secure = ( 'https' === parse_url( site_url(), PHP_URL_SCHEME ) && 'https' === parse_url( home_url(), PHP_URL_SCHEME ) );
 
-		setcookie( 'hmn_cp_visitor', $this->visitor_id, $expiry, COOKIEPATH, COOKIE_DOMAIN, $secure );
+		$this->setcookie( 'hmn_cp_visitor', $this->visitor_id, $expiry, COOKIEPATH, COOKIE_DOMAIN, $secure );
 		if ( SITECOOKIEPATH != COOKIEPATH ) {
-			setcookie( 'hmn_cp_visitor', $this->visitor_id, $expiry, SITECOOKIEPATH, COOKIE_DOMAIN, $secure );
+			$this->setcookie( 'hmn_cp_visitor', $this->visitor_id, $expiry, SITECOOKIEPATH, COOKIE_DOMAIN, $secure );
 		}
 
 		// Make cookie available immediately by setting value manually.
