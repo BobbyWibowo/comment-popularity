@@ -12,18 +12,18 @@
 				comment_id = $(this).data( 'commentId' ),
 				containerClass = $(this).closest( 'span' ).attr( 'class' );
 
-			var post_ids = [];
+			var post_ids = {};
 
 			var parent = $(this).parents( '#comments[data-post-id]' ).get(0);
 			if ( parent && parent.dataset.postId ) {
-				post_ids.push( parent.dataset.postId );
+				post_ids[parent.dataset.postId] = true;
 			}
 
 			var currentPost = $( '#main > article[id^="post"]' ).get(0);
 			if ( currentPost ) {
 				var currentPostID = currentPost.id.replace( 'post-', '' );
 				if ( currentPostID !== undefined ) {
-					post_ids.push( currentPostID );
+					post_ids[currentPostID] = true;
 				}
 			}
 
@@ -42,7 +42,7 @@
 						action: 'comment_vote_callback',
 						vote: value,
 						comment_id: comment_id,
-						post_ids: post_ids,
+						post_ids: Object.keys(post_ids),
 						hmn_vote_nonce: comment_popularity.hmn_vote_nonce
 					}
 				);
