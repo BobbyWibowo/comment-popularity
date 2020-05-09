@@ -11,7 +11,7 @@
 			var value = 0,
 				comment_id = $(this).data( 'commentId' ),
 				containerClass = $(this).closest( 'span' ).attr( 'class' );
-			
+
 			var post_ids = [];
 
 			var parent = $(this).parents( '#comments[data-post-id]' ).get(0);

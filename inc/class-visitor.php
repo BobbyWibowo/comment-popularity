@@ -69,7 +69,7 @@ class HMN_CP_Visitor_Guest extends HMN_CP_Visitor {
 	public function __construct( $visitor_id ) {
 
 		parent::__construct( $visitor_id );
-		
+
 		$this->set_cookie();
 
 		$this->retrieve_logged_votes();
