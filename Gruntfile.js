@@ -261,6 +261,7 @@ module.exports = function (grunt) {
 	// Package a new release
 	grunt.registerTask( 'package', [
 		'replace',
+		'wp_readme_to_markdown',
 		'clean:compressed',
 		'copy:build',
 		'compress:build',
