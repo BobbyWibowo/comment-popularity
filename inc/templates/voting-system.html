@@ -21,9 +21,13 @@
 			</span>
 
 	{% else %}
-		<a href="{{ login_url }}"><i class="icon-vote-up"></i></a>
+		<span>
+			<a href="{{ login_url }}"><i class="icon-vote-up"></i></a>
+		</span>
 		<span id="comment-weight-value-{{ comment_id }}">{{ comment_weight }}</span>
-		<a href="{{ login_url }}"><i class="icon-vote-down"></i></a>
+		<span>
+			<a href="{{ login_url }}"><i class="icon-vote-down"></i></a>
+		</span>
 
 	{% endif %}
 

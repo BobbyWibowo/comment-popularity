@@ -169,7 +169,7 @@ class HMN_CP_Visitor_Guest extends HMN_CP_Visitor {
 
 		}
 
-		if ( array_key_exists( $this->cookie, $hmn_cp_guests_logged_votes ) )
+		if ( is_array( $hmn_cp_guests_logged_votes ) && array_key_exists( $this->cookie, $hmn_cp_guests_logged_votes ) )
 			return $hmn_cp_guests_logged_votes[ $this->cookie ];
 		else
 			return null;
