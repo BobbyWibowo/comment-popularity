@@ -11,7 +11,7 @@ class HMN_Comment_Popularity {
 	/**
 	 * Plugin version number.
 	 */
-	const HMN_CP_PLUGIN_VERSION = '1.3.5+slavicd.0.4.10';
+	const HMN_CP_PLUGIN_VERSION = '1.3.5+slavicd.0.4.11';
 
 	/**
 	 * The minimum PHP version compatibility.
@@ -558,14 +558,13 @@ class HMN_Comment_Popularity {
 
 		} else {
 
-			// Clear pages' caches (W3 Total Cache).
+			// Clear comment post's cache (W3 Total Cache).
 			if (function_exists('w3tc_flush_post')) {
 
-				$post_ids = $_POST['post_ids'];
-				$reduced = array_unique( array_slice( $post_ids, 0, 2 ), SORT_NUMERIC );
-
-				for ( $i = 0, $size = count( $reduced ); $i < $size; ++$i ) {
-					w3tc_flush_post( absint( $reduced[$i] ) );
+				$comment = get_comment( $comment_id );
+				if ( isset( $comment ) && $comment->comment_post_ID )
+				{
+					w3tc_flush_post( $comment->comment_post_ID );
 				}
 
 			}
